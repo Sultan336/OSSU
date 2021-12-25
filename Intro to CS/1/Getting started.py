@@ -23,3 +23,5 @@ print(d)
 import math
 print(math.cos(3.4)**2+math.sin(3.4)**2)
 
+
+
