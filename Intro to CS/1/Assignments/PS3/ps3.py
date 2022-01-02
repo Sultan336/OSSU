@@ -91,9 +91,13 @@ def get_word_score(word, n):
     n: int >= 0
     returns: int >= 0
     """
-    
-    pass  # TO DO... Remove this line when you implement this function
-
+    score = 0
+    if word:
+        for letter in word:
+            score += SCRABBLE_LETTER_VALUES[letter]
+        if len(word) == n:
+            score += 50
+    return score
 #
 # Make sure you understand how this function works and what it does!
 #
