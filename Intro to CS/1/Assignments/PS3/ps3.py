@@ -91,16 +91,18 @@ def get_word_score(word, n):
     n: int >= 0
     returns: int >= 0
     """
-    first_component = 0
-    for i in word.lower():
-        if i in string.ascii_letters:
-            first_component += SCRABBLE_LETTER_VALUES[i]
+    word = word.lower()
+    word_length = len(word)
+    if word.find('*') >= 1:
+        word = word.replace('*','')
+    comp1 = 0
 
-    second_component = 7 * len(word) - 3 * (n-len(word))
-    if second_component < 1:
-        second_component = 1
+    for i in word:
+        comp1 += SCRABBLE_LETTER_VALUES[i]
+    
+    comp2 = max([7 * word_length - 3 * (n - word_length) , 1])
 
-    return first_component * second_component
+    return comp1 * comp2
 
 
 #
