@@ -91,13 +91,18 @@ def get_word_score(word, n):
     n: int >= 0
     returns: int >= 0
     """
-    score = 0
-    if word:
-        for letter in word:
-            score += SCRABBLE_LETTER_VALUES[letter]
-        if len(word) == n:
-            score += 50
-    return score
+    first_component = 0
+    for i in word.lower():
+        if i in string.ascii_letters:
+            first_component += SCRABBLE_LETTER_VALUES[i]
+
+    second_component = 7 * len(word) - 3 * (n-len(word))
+    if second_component < 1:
+        second_component = 1
+
+    return first_component * second_component
+
+
 #
 # Make sure you understand how this function works and what it does!
 #
