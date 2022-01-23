@@ -92,12 +92,16 @@ def get_word_score(word, n):
     returns: int >= 0
     """
     component_1 = 0
+    
     for i in word.lower():
         if i in string.ascii_letters:
             component_1 += SCRABBLE_LETTER_VALUES[i]
+            
     component_2 = 7 * len(word) - 3 * (n - len(word))
+    
     if component_2 <= 0:
         component_2 = 1
+        
     return component_1 * component_2
 
 
@@ -175,7 +179,16 @@ def update_hand(hand, word):
     returns: dictionary (string -> int)
     """
 
-    pass  # TO DO... Remove this line when you implement this function
+    new_hand = hand.copy()
+    word = word.lower()
+    
+    for i in word:
+        if i in new_hand.keys():
+            new_hand[i] -= new_hand[i] - 1
+
+    
+    return new_hand
+    
 
 #
 # Problem #3: Test word validity
