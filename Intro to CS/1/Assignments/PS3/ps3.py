@@ -184,7 +184,7 @@ def update_hand(hand, word):
     
     for i in word:
         if i in new_hand.keys():
-            new_hand[i] -= new_hand[i] - 1
+            new_hand[i] = new_hand[i] - 1
 
     
     return new_hand
@@ -204,8 +204,23 @@ def is_valid_word(word, hand, word_list):
     word_list: list of lowercase strings
     returns: boolean
     """
+    hand_copy = hand.copy()
+    word = word.lower()
+    
+    if word in word_list:
+        for i in word:
+            if i in hand_copy.keys() and hand_copy[i] != 0:
+                hand_copy[i] -= 1
+            else:
+                return False
+            
+    else:
+        return False
+    
+    return True
 
-    pass  # TO DO... Remove this line when you implement this function
+
+
 
 #
 # Problem #5: Playing a hand
