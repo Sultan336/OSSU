@@ -18,7 +18,7 @@ class Animal(object):
     def __str__(self):
         return "animal:"+str(self.name)+":"+str(self.age)
         
-print("\n---- animal tests ----")
+print("---- animal tests ----")
 a = Animal(4)
 print(a)
 print(a.get_age())
@@ -26,7 +26,6 @@ a.set_name("fluffy")
 print(a)
 a.set_name()
 print(a)
-
 
 
 #################################
@@ -46,7 +45,6 @@ c.speak()
 print(c.get_age())
 #a.speak() # error because there is no speak method for Animal class
 
-    
 #################################
 ## Inheritance example
 #################################
@@ -77,8 +75,7 @@ print(p2.get_name())
 print(p2.get_age())
 print(p1)
 p1.speak()
-p1.age_diff(p2)
-
+p2.age_diff(p1)
 
 #################################
 ## Inheritance example
@@ -111,8 +108,6 @@ print(s1.get_name(),"says:", end=" ")
 s1.speak()
 print(s2.get_name(),"says:", end=" ")
 s2.speak()
-
-
 
 #################################
 ## Use of class variables  

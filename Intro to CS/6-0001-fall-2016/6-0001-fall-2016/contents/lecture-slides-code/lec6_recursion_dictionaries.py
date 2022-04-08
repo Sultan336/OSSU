@@ -9,64 +9,6 @@ Created on Wed Sep 21 11:52:34 2016
 # EXAMPLE:  Towers of Hanoi
 #####################################
 
-def printMove(fr, to):
-    print('move from ' + str(fr) + ' to ' + str(to))
-
-def Towers(n, fr, to, spare):
-    if n == 1:
-        printMove(fr, to)
-    else:
-        Towers(n-1, fr, spare, to)
-        Towers(1, fr, to, spare)
-        Towers(n-1, spare, to, fr)
-
-#print(Towers(4, 'P1', 'P2', 'P3'))
-
-#####################################
-# EXAMPLE:  fibonacci
-#####################################
-
-def fib(x):
-    """assumes x an int >= 0
-       returns Fibonacci of x"""
-    if x == 0 or x == 1:
-        return 1
-    else:
-        return fib(x-1) + fib(x-2)
-        
-#####################################
-# EXAMPLE:  testing for palindromes
-#####################################
-        
-def isPalindrome(s):
-
-    def toChars(s):
-        s = s.lower()
-        ans = ''
-        for c in s:
-            if c in 'abcdefghijklmnopqrstuvwxyz':
-                ans = ans + c
-        return ans
-
-    def isPal(s):
-        if len(s) <= 1:
-            return True
-        else:
-            return s[0] == s[-1] and isPal(s[1:-1])
-
-    return isPal(toChars(s))
-
-#print(isPalindrome('eve'))
-#
-#print(isPalindrome('Able was I, ere I saw Elba'))
-#
-#print(isPalindrome('Is this a palindrome'))
-
-#####################################
-# EXAMPLE: using dictionaries
-#          counting frequencies of words in song lyrics
-#####################################
-
 def lyrics_to_frequencies(lyrics):
     myDict = {}
     for word in lyrics:
@@ -153,36 +95,4 @@ def words_often(freqs, minTimes):
             done = True
     return result
     
-#print(words_often(beatles, 5))
-
-#####################################
-# EXAMPLE: comparing fibonacci using memoization
-#####################################
-
-
-def fib(n):
-    if n == 1:
-        return 1
-    elif n == 2:
-        return 2
-    else:
-        return fib(n-1) + fib(n-2)
-
-
-def fib_efficient(n, d):
-    if n in d:
-        return d[n]
-    else:
-        ans = fib_efficient(n-1, d)+fib_efficient(n-2, d)
-        d[n] = ans
-        return ans
-        
-d = {1:1, 2:2}
-
-argToUse = 34
-#print("")
-#print('using fib')
-#print(fib(argToUse))
-#print("")
-#print('using fib_efficient')
-#print(fib_efficient(argToUse, d))
+print(words_often(beatles, 5))
