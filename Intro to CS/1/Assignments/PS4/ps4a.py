@@ -30,7 +30,9 @@ def get_permutations(sequence):
         seq_copy = sequence[:]
         perm_list = []
         for char in sequence:
-            perm_list +=  [char + x for x in get_permutations(seq_copy.replace(char, ''))]
+            for x in get_permutations(seq_copy.replace(char, '')):
+                perm_list.append(char + x)
+            
         return perm_list
 
 
