@@ -290,11 +290,6 @@ if __name__ == '__main__':
     print('Expected Output:', (24, 'hello'))
     print('Actual Output:', ciphertext.decrypt_message())
     
-    print('\n')
     
-    ciphertext = CiphertextMessage('')
-    print('Expected Output:', (24, 'hello'))
-    print('Actual Output:', ciphertext.decrypt_message())
-
    
 

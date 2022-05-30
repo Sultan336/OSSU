@@ -4,7 +4,7 @@ save_data_on_exit = True
 save_history = True
 save_non_project_files = False
 project_type = 'empty-project-type'
-recent_files = ['../6-0001-fall-2016/6-0001-fall-2016/contents/lecture-slides-code/lec9_inheritance.py']
+recent_files = ['Assignments/PS4/ps4c.py', 'Assignments/PS4/ps4a.py']
 
 [main]
 version = 0.2.0
