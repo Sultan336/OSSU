@@ -129,6 +129,8 @@ The CPU executes two types of instructions:
     
 3.  **@10**: A-instruction → Load **10** into A Register.
 
+4.  D=D+A: C-instruction → Add D (5) and A (10) → D = 15.
+
 ### **Real-World Analogy**
 
 Think of the Hack CPU as the brain of a small robot:
@@ -141,5 +143,3 @@ Think of the Hack CPU as the brain of a small robot:
     
 *   **Program Counter (PC)**: The robot's step tracker, determining what it should do next.
   
-    
-5.  **D=D+A**: C-instruction → Add **D (5)** and **A (10)** → **D = 15**.
