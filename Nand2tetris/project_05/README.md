@@ -244,4 +244,91 @@ In short, it's like a computer's "library" 🏫 where you can either add new boo
 ### 📊 Summary
 
 This chip is a key part of the Hack computer, managing its memory and deciding where data goes and comes from based on the address. It can handle normal RAM, control the screen's content, and take keyboard input—all while ensuring the correct data gets read or written at the right    
+
+# Chain of Thought: HACK Computer Code Analysis
+
+---
+
+## Step 1: **Understanding the Problem**
+- The code represents a basic computer system built using the HACK architecture.
+- It integrates three main components: **ROM**, **CPU**, and **Memory**.
+- The goal is to execute instructions stored in ROM, manipulate data using the CPU, and store/retrieve data in Memory.
+
+---
+
+## Step 2: **Breaking Down the Code**
+1. **ROM32K**:
+   - This is a read-only memory (ROM) module with a 32K address space.
+   - It fetches instructions based on the `PC` (Program Counter).
+   - **Output**: The fetched instruction is sent to the CPU.
+
+2. **CPU**:
+   - The heart of the system, it:
+     - Decodes instructions.
+     - Performs computations and logic operations.
+     - Updates the `PC` for the next instruction.
+     - Manages memory interactions (read/write).
+   - **Input**: 
+     - `instruction` from ROM.
+     - `memOut` from Memory.
+     - `reset` signal to restart execution.
+   - **Output**:
+     - `outM` (data to write to Memory).
+     - `writeM` (signal to enable Memory write).
+     - `addressM` (target address for Memory operations).
+     - `PC` (updated Program Counter).
+
+3. **Memory**:
+   - Represents the system's RAM and handles data storage.
+   - Reads and writes data based on `addressM` and `writeM` signals from the CPU.
+   - **Input**:
+     - `outM` (data to write).
+     - `writeM` (write enable).
+     - `addressM` (address for read/write).
+   - **Output**:
+     - `memOut` (data read from the specified address).
+
+4. **Reset**:
+   - When `reset = 1`, the `PC` is set to `0`, restarting program execution from the beginning.
+
+---
+
+## Step 3: **Mapping Component Interactions**
+- **ROM → CPU**:
+  - ROM sends the fetched instruction to the CPU.
+- **CPU → Memory**:
+  - The CPU writes data (`outM`) or specifies an address (`addressM`) for Memory operations.
+- **Memory → CPU**:
+  - Memory sends data (`memOut`) to the CPU for further processing.
+
+---
+
+## Step 4: **Reset Behavior**
+- The `reset` signal plays a key role in controlling program execution:
+  - `reset = 1`: Restarts the program by setting `PC` to `0`.
+  - `reset = 0`: Continues execution from the current state.
+
+---
+
+## Step 5: **Summary of Behavior**
+- The system fetches instructions from ROM, processes them in the CPU, and interacts with Memory as required.
+- The reset mechanism ensures the program can restart when needed.
+
+---
+
+## Step 6: **Analogy for Understanding**
+- Imagine this computer as a **simple robot** 🤖:
+  1. **ROM**: A "to-do list" for the robot.
+  2. **CPU**: The brain 🧠 that interprets tasks and makes decisions.
+  3. **Memory**: A toolbox 🧰 where the robot stores and retrieves items as needed.
+  4. **Reset**: A button 🔄 to start over when the robot gets confused.
+
+---
+
+## Step 7: **High-Level Purpose**
+- This HACK computer is designed for:
+  1. Executing programs stored in ROM.
+  2. Processing and storing data dynamically.
+  3. Providing a simple architecture for learning computing concepts.
+
   
