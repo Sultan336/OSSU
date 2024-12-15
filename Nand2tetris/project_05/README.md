@@ -128,5 +128,18 @@ The CPU executes two types of instructions:
 2.  **D=A**: C-instruction → Set **D = 5**.
     
 3.  **@10**: A-instruction → Load **10** into A Register.
+
+### **Real-World Analogy**
+
+Think of the Hack CPU as the brain of a small robot:
+
+*   **ARegister**: The robot's map, pointing to specific locations in its memory.
     
-4.  **D=D+A**: C-instruction → Add **D (5)** and **A (10)** → **D = 15**.
+*   **DRegister**: The robot's notebook, storing intermediate results or data for ongoing tasks.
+    
+*   **ALU**: The calculator, performing operations like addition or comparisons.
+    
+*   **Program Counter (PC)**: The robot's step tracker, determining what it should do next.
+  
+    
+5.  **D=D+A**: C-instruction → Add **D (5)** and **A (10)** → **D = 15**.
